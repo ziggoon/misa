@@ -1,0 +1,32 @@
+[workspace] 
+members = ["access", "chdir", "config", "exec", "misa", "open", "readdir", "stat", "unlink"]
+exclude = ["deploy"]
+
+[features]
+debug = []
+
+[package]
+name = "rk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+access = { path = "./access" }
+chdir = { path = "./chdir" }
+misa = { path = "./misa" }
+open = { path = "./open" }
+readdir = { path = "./readdir" }
+stat = { path = "./stat" }
+exec = { path = "./exec" }
+unlink = { path = "./unlink" }
+config = { path = "./config" }
+pam = { path = "./pam" }
+errno = "0.3.8"
+libc = "0.2.153"
+
+[lib]
+crate-type = ["dylib"]
+
+[profile.release]
+lto = true
+panic = "abort"
